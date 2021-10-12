@@ -1,0 +1,5 @@
+*.exe
+*.out
+*.txt
+**/media
+**/__pycache__
