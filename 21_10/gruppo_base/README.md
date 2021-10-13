@@ -4,11 +4,6 @@
  * basi della programmazione in c++: 
    * output
    * variabili
-   * cicli for
    * cicli while
-   * array
  * svolgimento di esercizi iniziali
    * collatz
-   * easy1
-   * easy2
-   * easy3
