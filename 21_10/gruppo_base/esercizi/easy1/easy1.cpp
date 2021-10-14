@@ -8,18 +8,14 @@ int main()
 	int n;
 	cin >> n;
 
-	int S[n];
-	for (int i = 0; i < n; i++)
-	{
-		cin >> S[i];
-	}
-
 	int ans = -1000;
 	for (int i = 0; i < n; i++)
 	{
-		if (S[i] > ans)
+		int a;
+		cin >> a;
+		if (a > ans)
 		{
-			ans = S[i];
+			ans = a;
 		}
 	}
 	cout << ans << "\n";
