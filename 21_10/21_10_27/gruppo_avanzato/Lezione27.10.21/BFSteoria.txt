@@ -1,0 +1,22 @@
+//BFS
+//creare un vector di vector che contenga ogni nodo raggiungibile da un dato nodo, in posizione i tutti i nodi raggiungibili da i
+vector<vector<int>> adj(N);
+//creiamo un vettore vis in cui ci segnamo i nodi visitati, vis[i] == true se e solo se abbiamo visitato i
+vector<bool> vis(N, false);
+//usiamo una queue, possiamo inserire gli elementi solo da dietro q.push(), accedere al primo di essi q.front() e toglierlo q.pop()
+queue<int> q;
+q.push(0);
+while (!q.empty()){
+    //accediamo al primo elemento
+    int t = q.front();
+    //lo segnamo come visitato
+    vis[t] = true;
+    //pushamo nella queue ogni nodo k raggiungibile da t non visitato
+    for(auto k : adj[t]){
+        if (!vis[k]){
+            q.push(k);
+        }
+    }
+    //togliamo il primo elemento
+    q.pop();
+}

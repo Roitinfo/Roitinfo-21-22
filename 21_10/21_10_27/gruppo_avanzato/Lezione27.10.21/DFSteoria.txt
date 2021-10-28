@@ -1,0 +1,20 @@
+//DFS
+//creare un vector di vector che contenga ogni nodo raggiungibile da un dato nodo, in posizione i tutti i nodi raggiungibili da i
+vector<vector<int>> adj(N);
+//creiamo un vettore vis in cui ci segnamo i nodi visitati, vis[i] == true se e solo se abbiamo visitato i
+vector<bool> vis(N, false);
+//dobbiamo iterare sul grafo
+//iniziamo dal nodo di partenza e cominciamo a visitare in profondità
+void dfs(int X){
+    //rendiamo visitato il nodo in cui ci troviamo
+    vis[X] = true;
+    //X è il nodo in cui ci troviamo
+    for (auto k : adj[x]){
+        if (!vis[k]){
+            dfs(k);
+        }
+    }
+    /*for (int i = 0; i < adj[x].size(); i++){
+        int k = adj[x][i];
+    }*/
+}
