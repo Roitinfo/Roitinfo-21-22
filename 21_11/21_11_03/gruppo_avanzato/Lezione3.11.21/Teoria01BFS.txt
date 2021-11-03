@@ -1,0 +1,36 @@
+//0_1 BFS
+//Dobbiamo fare una normale bfs, nella quale ogni volta che il peso dell'arco è 0 il nodo viene pushato all'inizio della coda e non alla fine
+//adj[i] contiene tutti gli archi che partono da i
+vector<vector<pair<int, int>>> adj(N);
+//vis[i] è true se lo abbiamo visitato;
+vector<bool> vis;
+//dis[i] contiene la distanza di i dalla sorgente
+vector<int> dis;
+dis[0] = 0;
+//strutturiamo di seguito la funzione per fare la 0_1 BFS
+int main(){
+    //usiamo una deque, anziché una queue
+    deque<pair<int, int>> d;
+    //pushamo il nodo 0 e gli diamo distanza 0
+    d.push_front(0, 0);
+    while(!d.empty()){
+        int t = d.front();
+        d.pop_front();
+        if (vis[t]){
+            continue;
+        }
+        vis[t] = true;
+        for (auto x : adj[t.first]){
+            //se il peso dell'arco è 0, lo pushamo davanti
+            if (x.second == 0 && !vis[x.first]){
+                d.push_front(x.first, t.second);
+                dis[x.first] = t.second;
+            }
+            //se il peso dell'arco è 1, lo pushamo dietro
+            else if (x.second == 1 && !vis[x.first]){
+                d.push_back(x.first, t.second + 1);
+                dis[x.first] = t.second + 1;
+            }
+        }
+    }
+}
