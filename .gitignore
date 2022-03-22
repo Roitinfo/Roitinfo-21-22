@@ -2,4 +2,5 @@
 *.out
 *.txt
 **/media
+*.ipynb
 **/__pycache__
